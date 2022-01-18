@@ -11,3 +11,19 @@ function strictEquals(a, b) {
 
   return Object.is(a, b);
 }
+
+describe("Test on function strictEquals", () => {
+  describe("Given same values (1, 1)", () => {
+    test("Expected true", () => {
+      //Arrange
+      const valueToGive = 1;
+      const expectedOutput = true;
+
+      //Act
+      const output = strictEquals(valueToGive, valueToGive);
+
+      //Assert
+      expect(expectedOutput).toBe(output);
+    });
+  });
+});
