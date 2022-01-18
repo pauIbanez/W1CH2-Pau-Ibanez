@@ -26,4 +26,44 @@ describe("Test on function strictEquals", () => {
       expect(expectedOutput).toBe(output);
     });
   });
+  describe("Given same values (NaN, NaN)", () => {
+    test("Expected false", () => {
+      //Arrange
+      const valueToGive = NaN;
+      const expectedOutput = false;
+
+      //Act
+      const output = strictEquals(valueToGive, valueToGive);
+
+      //Assert
+      expect(expectedOutput).toBe(output);
+    });
+  });
+
+  describe("Given values 0 and -0", () => {
+    test("Expected true (-0, 0))", () => {
+      //Arrange
+      const valueToGive1 = -0;
+      const valueToGive2 = 0;
+      const expectedOutput = true;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(expectedOutput).toBe(output);
+    });
+    test("Expected true (0, -0))", () => {
+      //Arrange
+      const valueToGive1 = 0;
+      const valueToGive2 = -0;
+      const expectedOutput = true;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(output).toBe(expectedOutput);
+    });
+  });
 });
