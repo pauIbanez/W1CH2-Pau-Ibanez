@@ -23,7 +23,7 @@ describe("Test on function strictEquals", () => {
       const output = strictEquals(valueToGive, valueToGive);
 
       //Assert
-      expect(expectedOutput).toBe(output);
+      expect(output).toBe(expectedOutput);
     });
   });
   describe("Given same values (NaN, NaN)", () => {
@@ -36,7 +36,7 @@ describe("Test on function strictEquals", () => {
       const output = strictEquals(valueToGive, valueToGive);
 
       //Assert
-      expect(expectedOutput).toBe(output);
+      expect(output).toBe(expectedOutput);
     });
   });
 
@@ -51,13 +51,28 @@ describe("Test on function strictEquals", () => {
       const output = strictEquals(valueToGive1, valueToGive2);
 
       //Assert
-      expect(expectedOutput).toBe(output);
+      expect(output).toBe(expectedOutput);
     });
     test("Expected true (0, -0))", () => {
       //Arrange
       const valueToGive1 = 0;
       const valueToGive2 = -0;
       const expectedOutput = true;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("Given same values of diferent type (1, '1')", () => {
+    test("Expected false", () => {
+      //Arrange
+      const valueToGive1 = 1;
+      const valueToGive2 = "1";
+      const expectedOutput = false;
 
       //Act
       const output = strictEquals(valueToGive1, valueToGive2);
