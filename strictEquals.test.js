@@ -81,4 +81,32 @@ describe("Test on function strictEquals", () => {
       expect(output).toBe(expectedOutput);
     });
   });
+
+  describe("Given boolean values true and false", () => {
+    test("Expected false (true, false)", () => {
+      //Arrange
+      const valueToGive1 = true;
+      const valueToGive2 = false;
+      const expectedOutput = false;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(output).toBe(expectedOutput);
+    });
+
+    test("Expected true (false, false)", () => {
+      //Arrange
+      const valueToGive1 = false;
+      const valueToGive2 = false;
+      const expectedOutput = true;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(output).toBe(expectedOutput);
+    });
+  });
 });
