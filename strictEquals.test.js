@@ -109,4 +109,18 @@ describe("Test on function strictEquals", () => {
       expect(output).toBe(expectedOutput);
     });
   });
+  describe("Given different values of same type ('Water', 'Oil')", () => {
+    test("Expected false", () => {
+      //Arrange
+      const valueToGive1 = "Water";
+      const valueToGive2 = "Oil";
+      const expectedOutput = false;
+
+      //Act
+      const output = strictEquals(valueToGive1, valueToGive2);
+
+      //Assert
+      expect(output).toBe(expectedOutput);
+    });
+  });
 });
